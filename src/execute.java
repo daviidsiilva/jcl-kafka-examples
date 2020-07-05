@@ -14,7 +14,7 @@ public class execute {
 
 		Boolean registered = jcl.register(UserServices.class, "UserServices");
 		if(registered) {
-			for(int i = 0; i < 100; i++) {
+			for(int i = 0; i < 5; i++) {
 				Object[] args1 = {
 						new Integer("1"), 
 						new Integer("1000"), 
