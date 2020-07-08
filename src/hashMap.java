@@ -8,14 +8,15 @@ public class hashMap {
 		Map<String, Integer> jclHashMap = JCL_FacadeImpl.GetHashMap("mymap5");
 		String keyPrefix = "key";
 		
-		for(int i=1; i<=3; i++){
+		long initGetTime = System.currentTimeMillis();
+		for(int i=0; i<10; i++){
 			jclHashMap.put(keyPrefix + i, i);
 		}
-
-		for(int i=1; i<=3; i++){
+		for(int i=0; i<10; i++){
 			System.out.println("k: " + keyPrefix + i + ", v: " + jclHashMap.get(keyPrefix + i));
 		}
-
+		System.out.println(System.currentTimeMillis() - initGetTime);
+		
 		System.out.println("mymap2 size: " + jclHashMap.size());
 	}
 }

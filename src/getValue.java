@@ -9,11 +9,10 @@ public class getValue {
 		jcl.instantiateGlobalVar("abacaxi", "Abacaxi");
 		
 		long initGetTime = System.currentTimeMillis();
-		
 		for(int i=0; i < 10000; i++) {
 			jcl.getValue("abacaxi").getCorrectResult().toString();
 		}
-		
-		System.out.println("thread " + Thread.currentThread().getId() + ": getTime() spent " + (System.currentTimeMillis() - initGetTime));
+		System.out.println(System.currentTimeMillis() - initGetTime);
+//		System.out.println("thread " + Thread.currentThread().getId() + ": getTime() spent " + (System.currentTimeMillis() - initGetTime));
 	}
 }

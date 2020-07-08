@@ -8,14 +8,16 @@ public class getValueLockingSum {
 
 		Integer sum = 0;
 
-		jcl.instantiateGlobalVar("sum4", sum);
+		jcl.instantiateGlobalVar("sum103", sum);
 
-		for(int i = 0; i < 50; i++) {
-			sum = (Integer) jcl.getValueLocking("sum4").getCorrectResult();
-			System.out.println("thread " + Thread.currentThread().getId() + ": sum=" + sum);
+		long initGetTime = System.currentTimeMillis();
+		for(int i = 0; i < 10; i++) {
+			sum = (Integer) jcl.getValueLocking("sum103").getCorrectResult();
+			System.out.println(i);
+//			System.out.println("thread " + Thread.currentThread().getId() + ": sum=" + sum);
 			sum = sum + 1;
-			jcl.setValueUnlocking("sum4", sum);
-
+			jcl.setValueUnlocking("sum103", sum);
 		}
+		System.out.println(System.currentTimeMillis() - initGetTime);
 	}
 }

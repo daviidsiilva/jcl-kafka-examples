@@ -11,15 +11,19 @@ public class hashMapThread {
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
+				long initGetTime = System.currentTimeMillis();
 				Long threadId = Thread.currentThread().getId();
 				jclHashMap.put("a", threadId);
+				System.out.println(System.currentTimeMillis() - initGetTime);
 			}
 		}).start();
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
+				long initGetTime = System.currentTimeMillis();
 				Long threadId = Thread.currentThread().getId();
 				jclHashMap.put("b", threadId);
+				System.out.println(System.currentTimeMillis() - initGetTime);
 			}
 		}).start();
 
@@ -27,13 +31,19 @@ public class hashMapThread {
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				System.out.println("k: a" + ", v: " + jclHashMap.get("a"));
+				long initGetTime = System.currentTimeMillis();
+				jclHashMap.get("a");
+//				System.out.println("k: a" + ", v: " + jclHashMap.get("a"));
+				System.out.println(System.currentTimeMillis() - initGetTime);
 			}
 		}).start();
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				System.out.println("k: b" + ", v: " + jclHashMap.get("b"));
+				long initGetTime = System.currentTimeMillis();
+				jclHashMap.get("b");
+//				System.out.println("k: b" + ", v: " + jclHashMap.get("b"));
+				System.out.println(System.currentTimeMillis() - initGetTime);
 			}
 		}).start();
 	}

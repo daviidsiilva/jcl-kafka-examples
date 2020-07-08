@@ -1,6 +1,8 @@
 
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.Future;
 
 import implementations.dm_kernel.user.JCL_FacadeImpl;
@@ -11,11 +13,12 @@ public class executeThread {
 	
 	public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
 		JCL_facade jcl = JCL_FacadeImpl.getInstance();
-
+		List<Thread> executeThreads = new ArrayList<Thread>();
+		
 		Boolean registered = jcl.register(UserServices.class, "UserServices");
 		if(registered) {
-			for(int i = 0; i < 100; i++) {
-				new Thread(new Runnable() {
+			for(int i = 0; i < 10; i++) {
+				executeThreads.add(new Thread(new Runnable() {
 		            @Override
 		            public void run() {
 		            	Object[] args = {
@@ -27,13 +30,27 @@ public class executeThread {
 		        		Future<JCL_result> ticket = jcl.execute("UserServices", args);
 		        		
 		        		try {
-		        			System.out.println("thread " + Thread.currentThread().getId() + ": jcl.execute(\"UserServices\", args)=" + ticket.get().getCorrectResult());
+		        			ticket.get().getCorrectResult();
 		        		} catch (Exception e) {
 		        			e.printStackTrace();
 		        		}
 					}
-				}).start();
+				}));
 			}
 		}
+		
+		long initGetTime = System.currentTimeMillis();
+		executeThreads.forEach(thread -> {
+			thread.start();
+		});
+		
+		executeThreads.forEach(thread -> {
+			try {
+				thread.join();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		});
+		System.out.println(System.currentTimeMillis() - initGetTime);
 	}
 }

@@ -14,22 +14,24 @@ public class execute {
 
 		Boolean registered = jcl.register(UserServices.class, "UserServices");
 		if(registered) {
-			for(int i = 0; i < 5; i++) {
-				Object[] args1 = {
-						new Integer("1"), 
-						new Integer("1000"), 
-						new Integer(10)
-				};
-
+			long initGetTime = System.currentTimeMillis();
+			Object[] args1 = {
+					new Integer("1"), 
+					new Integer("1000"), 
+					new Integer(10)
+			};
+			
+			for(int i = 0; i < 10; i++) {
 				Future<JCL_result> ticket = jcl.execute("UserServices", args1);
 
 				try {
-					System.out.println("thread " + Thread.currentThread().getId() + ": jcl.execute(\"UserServices\", args)=" + ticket.get().getCorrectResult());
+					ticket.get().getCorrectResult();
+//					System.out.println("thread " + Thread.currentThread().getId() + ": jcl.execute(\"UserServices\", args)=" + ticket.get().getCorrectResult());
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-
 			}
+			System.out.println("execute.java * 100 spent " + (System.currentTimeMillis() - initGetTime));
 		}
 	}
 }
