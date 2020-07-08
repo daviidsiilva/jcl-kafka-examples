@@ -1,7 +1,8 @@
+package Toy;
 
 import implementations.collections.JCLHashMapPacu;
 
-public class hashMapGetLock {
+public class HashMapGetLock {
 
 	public static void main(String[] args) {
 		JCLHashMapPacu<Object, Object> jclHashMap = new JCLHashMapPacu<Object, Object>("mapGetLock33");

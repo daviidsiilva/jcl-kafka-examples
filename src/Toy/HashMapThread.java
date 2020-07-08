@@ -1,9 +1,10 @@
+package Toy;
 
 import java.util.Map;
 
 import implementations.dm_kernel.user.JCL_FacadeImpl;
 
-public class hashMapThread {
+public class HashMapThread {
 	public static void main(String[] args) {
 		Map<String, Long> jclHashMap = JCL_FacadeImpl.GetHashMap("mymap7");
 		

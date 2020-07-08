@@ -1,3 +1,4 @@
+package Toy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -5,7 +6,7 @@ import java.util.List;
 import implementations.dm_kernel.user.JCL_FacadeImpl;
 import interfaces.kernel.JCL_facade;
 
-public class getValueLockingSumThread {
+public class GetValueLockingSumThread {
 	public static void main(String[] args) {
 		JCL_facade jcl = JCL_FacadeImpl.getInstance();
 		List<Thread> getSetValueLockingThreads = new ArrayList<Thread>();

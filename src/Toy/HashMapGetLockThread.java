@@ -1,10 +1,11 @@
+package Toy;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import implementations.collections.JCLHashMapPacu;
 
-public class hashMapGetLockThread {
+public class HashMapGetLockThread {
 
 	public static void main(String[] args) {
 		JCLHashMapPacu<Object, Object> jclHashMap = new JCLHashMapPacu<>("mapGetLock41");

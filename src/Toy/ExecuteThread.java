@@ -1,3 +1,4 @@
+package Toy;
 
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
@@ -9,7 +10,7 @@ import implementations.dm_kernel.user.JCL_FacadeImpl;
 import interfaces.kernel.JCL_facade;
 import interfaces.kernel.JCL_result;
  
-public class executeThread {
+public class ExecuteThread {
 	
 	public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
 		JCL_facade jcl = JCL_FacadeImpl.getInstance();
