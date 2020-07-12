@@ -1,4 +1,4 @@
-package com30;
+package commom;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

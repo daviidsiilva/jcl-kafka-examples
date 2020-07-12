@@ -1,4 +1,4 @@
-package com30;
+package commom;
 
 public class Consumer<S> extends Thread{
 

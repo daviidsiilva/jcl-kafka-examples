@@ -1,4 +1,4 @@
-package com30;
+package commom;
 
 import java.io.FileWriter;
 import java.io.IOException;
