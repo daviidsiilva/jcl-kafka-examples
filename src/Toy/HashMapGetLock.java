@@ -1,4 +1,4 @@
-package Toy;
+package toy;
 
 import implementations.collections.JCLHashMapPacu;
 

@@ -1,4 +1,4 @@
-package Toy;
+package toy;
 
 import implementations.dm_kernel.user.JCL_FacadeImpl;
 import interfaces.kernel.JCL_facade;

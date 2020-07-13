@@ -1,4 +1,4 @@
-package Toy;
+package toy;
 
 import java.util.Map;
 

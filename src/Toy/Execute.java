@@ -1,4 +1,4 @@
-package Toy;
+package toy;
 
 import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
